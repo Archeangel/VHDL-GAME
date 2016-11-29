@@ -1,0 +1,67 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+entity x7seg is
+	port(
+	x1: in STD_LOGIC_VECTOR(3 downto 0);        	--Input for 2 hex digits
+	x2: in STD_LOGIC_VECTOR(3 downto 0);        	--Input for 2 hex digits
+	clk: in STD_LOGIC;                          --Clock
+	clr : in STD_LOGIC;							--clear
+	out1: out STD_LOGIC_VECTOR(6 downto 0);	--output for segment
+	out2: out STD_LOGIC_VECTOR(6 downto 0);	--output for segment
+	an : out STD_LOGIC_VECTOR(3 downto 0);      --enable out
+	dp : out STD_LOGIC							--decimal point out
+	);
+end x7seg;
+
+architecture logic of x7seg is
+	signal s: STD_LOGIC_VECTOR(0 downto 0);
+	signal digit: STD_LOGIC_VECTOR(3 downto 0);  
+	signal aen : STD_LOGIC_VECTOR(3 downto 0);
+	signal clkdiv: STD_LOGIC_VECTOR(20 downto 0);
+BEGIN
+	s<=clkdiv(20 downto 20);
+	aen <="1111";
+	dp<='1';
+	--7 SEGMENT DECODER
+	process(x1)
+		BEGIN
+			CASE digit is
+				when X"0" => out1 <= "0000001"; --0
+				when X"1" => out1 <= "1001111"; --1
+				when X"2" => out1 <= "0010010"; --2
+				when X"3" => out1 <= "0000110"; --3
+				when X"4" => out1 <= "1001100"; --4
+				when X"5" => out1 <= "0100100"; --5
+				when X"6" => out1 <= "0100000"; --6
+				when X"7" => out1 <= "0001101"; --7
+				when X"8" => out1 <= "0000000"; --8
+				when X"9" => out1 <= "0000100"; --9
+				when X"A" => out1 <= "0001000"; --a
+				when X"B" => out1 <= "1100000"; --b
+				when X"C" => out1 <= "0110001"; --c
+				when X"D" => out1 <= "1000010"; --d
+				when X"E" => out1 <= "0110000"; --e
+				when X"F" => out1 <= "0111000"; --f
+		END CASE;
+	END PROCESS;
+
+	--DIGIT select: ancode
+	PROCESS (s, aen)
+	BEGIN
+		an<="1111";
+		IF aen(conv_integer(s))='1' THEN
+			an(conv_integer(s)) <='0';
+		END IF;
+	END PROCESS;
+	
+	--clock divider
+	PROCESS (clk, clr)
+		BEGIN
+			IF clr ='1' THEN
+				clkdiv<=(OTHERS =>'0');
+			ELSIF clk'EVENT and clk = '1' THEN
+				clkdiv <=clkdiv+1;
+			END IF;
+		END PROCESS;
+END logic;

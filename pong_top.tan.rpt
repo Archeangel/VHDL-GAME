@@ -1,0 +1,521 @@
+Classic Timing Analyzer report for pong_top
+Wed Nov 09 15:56:20 2016
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. Clock Hold: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                          ;
++------------------------------+------------------------------------------+---------------+----------------------------------+---------------------------------------------------------+------------------------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                                                    ; To                                 ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+---------------------------------------------------------+------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 4.792 ns                         ; ps2_data                                                ; ps2_keyboard:keyboard|sync_ffs[1]  ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 13.176 ns                        ; ps2_keyboard:keyboard|ps2_code[4]                       ; oHEX0_D[0]                         ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; -3.414 ns                        ; ps2_clk                                                 ; ps2_keyboard:keyboard|sync_ffs[0]  ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A                                      ; None          ; 99.01 MHz ( period = 10.100 ns ) ; ps2_keyboard:keyboard|ps2_word[8]                       ; ps2_keyboard:keyboard|ps2_code[7]  ; clk        ; clk      ; 0            ;
+; Clock Hold: 'clk'            ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; ps2_keyboard:keyboard|debounce:debounce_ps2_data|result ; ps2_keyboard:keyboard|ps2_word[10] ; clk        ; clk      ; 1            ;
+; Total number of failed paths ;                                          ;               ;                                  ;                                                         ;                                    ;            ;          ; 1            ;
++------------------------------+------------------------------------------+---------------+----------------------------------+---------------------------------------------------------+------------------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C70F896C6       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                                      ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------+--------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                 ; To                                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------+--------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 99.01 MHz ( period = 10.100 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.757 ns                ;
+; N/A                                     ; 99.01 MHz ( period = 10.100 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.757 ns                ;
+; N/A                                     ; 99.01 MHz ( period = 10.100 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.757 ns                ;
+; N/A                                     ; 99.01 MHz ( period = 10.100 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.757 ns                ;
+; N/A                                     ; 99.01 MHz ( period = 10.100 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.757 ns                ;
+; N/A                                     ; 99.01 MHz ( period = 10.100 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.757 ns                ;
+; N/A                                     ; 99.30 MHz ( period = 10.070 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 99.30 MHz ( period = 10.070 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 99.30 MHz ( period = 10.070 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 99.30 MHz ( period = 10.070 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 99.30 MHz ( period = 10.070 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 99.30 MHz ( period = 10.070 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 99.86 MHz ( period = 10.014 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.714 ns                ;
+; N/A                                     ; 99.86 MHz ( period = 10.014 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.714 ns                ;
+; N/A                                     ; 99.86 MHz ( period = 10.014 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.714 ns                ;
+; N/A                                     ; 99.86 MHz ( period = 10.014 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.714 ns                ;
+; N/A                                     ; 99.86 MHz ( period = 10.014 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.714 ns                ;
+; N/A                                     ; 99.86 MHz ( period = 10.014 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.714 ns                ;
+; N/A                                     ; 101.73 MHz ( period = 9.830 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.622 ns                ;
+; N/A                                     ; 101.73 MHz ( period = 9.830 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.622 ns                ;
+; N/A                                     ; 101.73 MHz ( period = 9.830 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.622 ns                ;
+; N/A                                     ; 101.73 MHz ( period = 9.830 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.622 ns                ;
+; N/A                                     ; 101.73 MHz ( period = 9.830 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.622 ns                ;
+; N/A                                     ; 101.73 MHz ( period = 9.830 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.622 ns                ;
+; N/A                                     ; 102.00 MHz ( period = 9.804 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.610 ns                ;
+; N/A                                     ; 102.00 MHz ( period = 9.804 ns )                    ; ps2_keyboard:keyboard|ps2_word[8]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.610 ns                ;
+; N/A                                     ; 102.06 MHz ( period = 9.798 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 102.06 MHz ( period = 9.798 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 102.06 MHz ( period = 9.798 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 102.06 MHz ( period = 9.798 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 102.06 MHz ( period = 9.798 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 102.06 MHz ( period = 9.798 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 102.31 MHz ( period = 9.774 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.595 ns                ;
+; N/A                                     ; 102.31 MHz ( period = 9.774 ns )                    ; ps2_keyboard:keyboard|ps2_word[7]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.595 ns                ;
+; N/A                                     ; 102.61 MHz ( period = 9.746 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.580 ns                ;
+; N/A                                     ; 102.61 MHz ( period = 9.746 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.580 ns                ;
+; N/A                                     ; 102.61 MHz ( period = 9.746 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.580 ns                ;
+; N/A                                     ; 102.61 MHz ( period = 9.746 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.580 ns                ;
+; N/A                                     ; 102.61 MHz ( period = 9.746 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.580 ns                ;
+; N/A                                     ; 102.61 MHz ( period = 9.746 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.580 ns                ;
+; N/A                                     ; 102.90 MHz ( period = 9.718 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.567 ns                ;
+; N/A                                     ; 102.90 MHz ( period = 9.718 ns )                    ; ps2_keyboard:keyboard|ps2_word[5]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.567 ns                ;
+; N/A                                     ; 104.89 MHz ( period = 9.534 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.475 ns                ;
+; N/A                                     ; 104.89 MHz ( period = 9.534 ns )                    ; ps2_keyboard:keyboard|ps2_word[3]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.475 ns                ;
+; N/A                                     ; 105.24 MHz ( period = 9.502 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.459 ns                ;
+; N/A                                     ; 105.24 MHz ( period = 9.502 ns )                    ; ps2_keyboard:keyboard|ps2_word[4]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.459 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.436 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.436 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.436 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.436 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.436 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.436 ns                ;
+; N/A                                     ; 105.82 MHz ( period = 9.450 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; 105.82 MHz ( period = 9.450 ns )                    ; ps2_keyboard:keyboard|ps2_word[1]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.299 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.299 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.299 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.299 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.299 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.299 ns                ;
+; N/A                                     ; 109.15 MHz ( period = 9.162 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.289 ns                ;
+; N/A                                     ; 109.15 MHz ( period = 9.162 ns )                    ; ps2_keyboard:keyboard|ps2_word[6]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.289 ns                ;
+; N/A                                     ; 110.84 MHz ( period = 9.022 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 110.84 MHz ( period = 9.022 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 110.84 MHz ( period = 9.022 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 110.84 MHz ( period = 9.022 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 110.84 MHz ( period = 9.022 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 110.84 MHz ( period = 9.022 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 2.218 ns                ;
+; N/A                                     ; 112.51 MHz ( period = 8.888 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.152 ns                ;
+; N/A                                     ; 112.51 MHz ( period = 8.888 ns )                    ; ps2_keyboard:keyboard|ps2_word[2]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.152 ns                ;
+; N/A                                     ; 114.60 MHz ( period = 8.726 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 2.071 ns                ;
+; N/A                                     ; 114.60 MHz ( period = 8.726 ns )                    ; ps2_keyboard:keyboard|ps2_word[9]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 2.071 ns                ;
+; N/A                                     ; 122.64 MHz ( period = 8.154 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 1.784 ns                ;
+; N/A                                     ; 122.64 MHz ( period = 8.154 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 1.784 ns                ;
+; N/A                                     ; 122.64 MHz ( period = 8.154 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 1.784 ns                ;
+; N/A                                     ; 122.64 MHz ( period = 8.154 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 1.784 ns                ;
+; N/A                                     ; 122.64 MHz ( period = 8.154 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 1.784 ns                ;
+; N/A                                     ; 122.64 MHz ( period = 8.154 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 1.784 ns                ;
+; N/A                                     ; 127.26 MHz ( period = 7.858 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 1.637 ns                ;
+; N/A                                     ; 127.26 MHz ( period = 7.858 ns )                    ; ps2_keyboard:keyboard|ps2_word[10]   ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 1.637 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 1.364 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 1.364 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 1.364 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 1.364 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 1.364 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 1.364 ns                ;
+; N/A                                     ; 142.49 MHz ( period = 7.018 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 1.217 ns                ;
+; N/A                                     ; 142.49 MHz ( period = 7.018 ns )                    ; ps2_keyboard:keyboard|ps2_word[0]    ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 1.217 ns                ;
+; N/A                                     ; 238.95 MHz ( period = 4.185 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.971 ns                ;
+; N/A                                     ; 241.55 MHz ( period = 4.140 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.926 ns                ;
+; N/A                                     ; 243.07 MHz ( period = 4.114 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A                                     ; 245.58 MHz ( period = 4.072 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.858 ns                ;
+; N/A                                     ; 245.76 MHz ( period = 4.069 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.855 ns                ;
+; N/A                                     ; 247.34 MHz ( period = 4.043 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.829 ns                ;
+; N/A                                     ; 249.94 MHz ( period = 4.001 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.787 ns                ;
+; N/A                                     ; 250.13 MHz ( period = 3.998 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.784 ns                ;
+; N/A                                     ; 251.76 MHz ( period = 3.972 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.758 ns                ;
+; N/A                                     ; 253.61 MHz ( period = 3.943 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.729 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.716 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.714 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.714 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.714 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.714 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.714 ns                ;
+; N/A                                     ; 254.45 MHz ( period = 3.930 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.714 ns                ;
+; N/A                                     ; 254.65 MHz ( period = 3.927 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.713 ns                ;
+; N/A                                     ; 256.34 MHz ( period = 3.901 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.687 ns                ;
+; N/A                                     ; 257.40 MHz ( period = 3.885 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.669 ns                ;
+; N/A                                     ; 257.40 MHz ( period = 3.885 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.669 ns                ;
+; N/A                                     ; 257.40 MHz ( period = 3.885 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.669 ns                ;
+; N/A                                     ; 257.40 MHz ( period = 3.885 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.669 ns                ;
+; N/A                                     ; 257.40 MHz ( period = 3.885 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.669 ns                ;
+; N/A                                     ; 257.40 MHz ( period = 3.885 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.669 ns                ;
+; N/A                                     ; 258.26 MHz ( period = 3.872 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.658 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.650 ns                ;
+; N/A                                     ; 259.13 MHz ( period = 3.859 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 259.34 MHz ( period = 3.856 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 260.48 MHz ( period = 3.839 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.625 ns                ;
+; N/A                                     ; 261.10 MHz ( period = 3.830 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[6]  ; clk        ; clk      ; None                        ; None                      ; 3.616 ns                ;
+; N/A                                     ; 261.99 MHz ( period = 3.817 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.601 ns                ;
+; N/A                                     ; 261.99 MHz ( period = 3.817 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.601 ns                ;
+; N/A                                     ; 261.99 MHz ( period = 3.817 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.601 ns                ;
+; N/A                                     ; 261.99 MHz ( period = 3.817 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.601 ns                ;
+; N/A                                     ; 261.99 MHz ( period = 3.817 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.601 ns                ;
+; N/A                                     ; 261.99 MHz ( period = 3.817 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.601 ns                ;
+; N/A                                     ; 263.09 MHz ( period = 3.801 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.587 ns                ;
+; N/A                                     ; 263.64 MHz ( period = 3.793 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.579 ns                ;
+; N/A                                     ; 263.99 MHz ( period = 3.788 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.574 ns                ;
+; N/A                                     ; 264.20 MHz ( period = 3.785 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[6]  ; clk        ; clk      ; None                        ; None                      ; 3.571 ns                ;
+; N/A                                     ; 264.41 MHz ( period = 3.782 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 264.41 MHz ( period = 3.782 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 265.39 MHz ( period = 3.768 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.554 ns                ;
+; N/A                                     ; 265.46 MHz ( period = 3.767 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.553 ns                ;
+; N/A                                     ; 267.59 MHz ( period = 3.737 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 3.522 ns                ;
+; N/A                                     ; 267.59 MHz ( period = 3.737 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 3.522 ns                ;
+; N/A                                     ; 268.10 MHz ( period = 3.730 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.516 ns                ;
+; N/A                                     ; 268.67 MHz ( period = 3.722 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.508 ns                ;
+; N/A                                     ; 269.03 MHz ( period = 3.717 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[6]  ; clk        ; clk      ; None                        ; None                      ; 3.503 ns                ;
+; N/A                                     ; 270.49 MHz ( period = 3.697 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.483 ns                ;
+; N/A                                     ; 270.56 MHz ( period = 3.696 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.482 ns                ;
+; N/A                                     ; 271.15 MHz ( period = 3.688 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.15 MHz ( period = 3.688 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.15 MHz ( period = 3.688 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.15 MHz ( period = 3.688 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.15 MHz ( period = 3.688 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.15 MHz ( period = 3.688 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 272.41 MHz ( period = 3.671 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[5]  ; clk        ; clk      ; None                        ; None                      ; 3.457 ns                ;
+; N/A                                     ; 272.55 MHz ( period = 3.669 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 3.454 ns                ;
+; N/A                                     ; 272.55 MHz ( period = 3.669 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 3.454 ns                ;
+; N/A                                     ; 272.70 MHz ( period = 3.667 ns )                    ; ps2_keyboard:keyboard|count_idle[6]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.453 ns                ;
+; N/A                                     ; 273.30 MHz ( period = 3.659 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.445 ns                ;
+; N/A                                     ; 273.90 MHz ( period = 3.651 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.437 ns                ;
+; N/A                                     ; 275.18 MHz ( period = 3.634 ns )                    ; ps2_keyboard:keyboard|count_idle[1]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.420 ns                ;
+; N/A                                     ; 275.79 MHz ( period = 3.626 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.412 ns                ;
+; N/A                                     ; 275.79 MHz ( period = 3.626 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[5]  ; clk        ; clk      ; None                        ; None                      ; 3.412 ns                ;
+; N/A                                     ; 275.86 MHz ( period = 3.625 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.411 ns                ;
+; N/A                                     ; 277.09 MHz ( period = 3.609 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.393 ns                ;
+; N/A                                     ; 277.09 MHz ( period = 3.609 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.393 ns                ;
+; N/A                                     ; 277.09 MHz ( period = 3.609 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.393 ns                ;
+; N/A                                     ; 277.09 MHz ( period = 3.609 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.393 ns                ;
+; N/A                                     ; 277.09 MHz ( period = 3.609 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.393 ns                ;
+; N/A                                     ; 277.09 MHz ( period = 3.609 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.393 ns                ;
+; N/A                                     ; 277.78 MHz ( period = 3.600 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[4]  ; clk        ; clk      ; None                        ; None                      ; 3.386 ns                ;
+; N/A                                     ; 278.09 MHz ( period = 3.596 ns )                    ; ps2_keyboard:keyboard|count_idle[6]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.382 ns                ;
+; N/A                                     ; 278.71 MHz ( period = 3.588 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|count_idle[6]  ; clk        ; clk      ; None                        ; None                      ; 3.374 ns                ;
+; N/A                                     ; 279.02 MHz ( period = 3.584 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.368 ns                ;
+; N/A                                     ; 279.02 MHz ( period = 3.584 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.368 ns                ;
+; N/A                                     ; 279.02 MHz ( period = 3.584 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.368 ns                ;
+; N/A                                     ; 279.02 MHz ( period = 3.584 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.368 ns                ;
+; N/A                                     ; 279.02 MHz ( period = 3.584 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.368 ns                ;
+; N/A                                     ; 279.02 MHz ( period = 3.584 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.368 ns                ;
+; N/A                                     ; 279.33 MHz ( period = 3.580 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.366 ns                ;
+; N/A                                     ; 279.72 MHz ( period = 3.575 ns )                    ; ps2_keyboard:keyboard|count_idle[5]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.361 ns                ;
+; N/A                                     ; 280.66 MHz ( period = 3.563 ns )                    ; ps2_keyboard:keyboard|count_idle[1]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.349 ns                ;
+; N/A                                     ; 281.06 MHz ( period = 3.558 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[5]  ; clk        ; clk      ; None                        ; None                      ; 3.344 ns                ;
+; N/A                                     ; 281.29 MHz ( period = 3.555 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[4]  ; clk        ; clk      ; None                        ; None                      ; 3.341 ns                ;
+; N/A                                     ; 281.29 MHz ( period = 3.555 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.341 ns                ;
+; N/A                                     ; 281.37 MHz ( period = 3.554 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.340 ns                ;
+; N/A                                     ; 282.49 MHz ( period = 3.540 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 3.325 ns                ;
+; N/A                                     ; 282.49 MHz ( period = 3.540 ns )                    ; ps2_keyboard:keyboard|count_idle[3]  ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 3.325 ns                ;
+; N/A                                     ; 283.37 MHz ( period = 3.529 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[3]  ; clk        ; clk      ; None                        ; None                      ; 3.315 ns                ;
+; N/A                                     ; 283.69 MHz ( period = 3.525 ns )                    ; ps2_keyboard:keyboard|count_idle[6]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.311 ns                ;
+; N/A                                     ; 284.50 MHz ( period = 3.515 ns )                    ; ps2_keyboard:keyboard|count_idle[4]  ; ps2_keyboard:keyboard|count_idle[11] ; clk        ; clk      ; None                        ; None                      ; 3.301 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|ps2_code[0]    ; clk        ; clk      ; None                        ; None                      ; 3.296 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|ps2_code[4]    ; clk        ; clk      ; None                        ; None                      ; 3.296 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|ps2_code[1]    ; clk        ; clk      ; None                        ; None                      ; 3.296 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|ps2_code[5]    ; clk        ; clk      ; None                        ; None                      ; 3.296 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|ps2_code[2]    ; clk        ; clk      ; None                        ; None                      ; 3.296 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|ps2_code[7]    ; clk        ; clk      ; None                        ; None                      ; 3.296 ns                ;
+; N/A                                     ; 284.98 MHz ( period = 3.509 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|count_idle[6]  ; clk        ; clk      ; None                        ; None                      ; 3.295 ns                ;
+; N/A                                     ; 285.39 MHz ( period = 3.504 ns )                    ; ps2_keyboard:keyboard|count_idle[5]  ; ps2_keyboard:keyboard|count_idle[10] ; clk        ; clk      ; None                        ; None                      ; 3.290 ns                ;
+; N/A                                     ; 286.37 MHz ( period = 3.492 ns )                    ; ps2_keyboard:keyboard|count_idle[1]  ; ps2_keyboard:keyboard|count_idle[9]  ; clk        ; clk      ; None                        ; None                      ; 3.278 ns                ;
+; N/A                                     ; 286.78 MHz ( period = 3.487 ns )                    ; ps2_keyboard:keyboard|count_idle[10] ; ps2_keyboard:keyboard|count_idle[4]  ; clk        ; clk      ; None                        ; None                      ; 3.273 ns                ;
+; N/A                                     ; 287.03 MHz ( period = 3.484 ns )                    ; ps2_keyboard:keyboard|count_idle[11] ; ps2_keyboard:keyboard|count_idle[3]  ; clk        ; clk      ; None                        ; None                      ; 3.270 ns                ;
+; N/A                                     ; 287.03 MHz ( period = 3.484 ns )                    ; ps2_keyboard:keyboard|count_idle[8]  ; ps2_keyboard:keyboard|count_idle[6]  ; clk        ; clk      ; None                        ; None                      ; 3.270 ns                ;
+; N/A                                     ; 287.11 MHz ( period = 3.483 ns )                    ; ps2_keyboard:keyboard|count_idle[0]  ; ps2_keyboard:keyboard|count_idle[7]  ; clk        ; clk      ; None                        ; None                      ; 3.269 ns                ;
+; N/A                                     ; 288.93 MHz ( period = 3.461 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[6]    ; clk        ; clk      ; None                        ; None                      ; 3.246 ns                ;
+; N/A                                     ; 288.93 MHz ( period = 3.461 ns )                    ; ps2_keyboard:keyboard|count_idle[2]  ; ps2_keyboard:keyboard|ps2_code[3]    ; clk        ; clk      ; None                        ; None                      ; 3.246 ns                ;
+; N/A                                     ; 289.18 MHz ( period = 3.458 ns )                    ; ps2_keyboard:keyboard|count_idle[9]  ; ps2_keyboard:keyboard|count_idle[2]  ; clk        ; clk      ; None                        ; None                      ; 3.244 ns                ;
+; N/A                                     ; 289.52 MHz ( period = 3.454 ns )                    ; ps2_keyboard:keyboard|count_idle[6]  ; ps2_keyboard:keyboard|count_idle[8]  ; clk        ; clk      ; None                        ; None                      ; 3.240 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                      ;                                      ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------+--------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clk'                                                                                                                                                                                                                                    ;
++------------------------------------------+---------------------------------------------------------+------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                                                    ; To                                 ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+---------------------------------------------------------+------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; ps2_keyboard:keyboard|debounce:debounce_ps2_data|result ; ps2_keyboard:keyboard|ps2_word[10] ; clk        ; clk      ; None                       ; None                       ; 1.192 ns                 ;
++------------------------------------------+---------------------------------------------------------+------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; tsu                                                                                         ;
++-------+--------------+------------+----------+-----------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                                ; To Clock ;
++-------+--------------+------------+----------+-----------------------------------+----------+
+; N/A   ; None         ; 4.792 ns   ; ps2_data ; ps2_keyboard:keyboard|sync_ffs[1] ; clk      ;
+; N/A   ; None         ; 3.644 ns   ; ps2_clk  ; ps2_keyboard:keyboard|sync_ffs[0] ; clk      ;
++-------+--------------+------------+----------+-----------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------+
+; tco                                                                                             ;
++-------+--------------+------------+-----------------------------------+------------+------------+
+; Slack ; Required tco ; Actual tco ; From                              ; To         ; From Clock ;
++-------+--------------+------------+-----------------------------------+------------+------------+
+; N/A   ; None         ; 13.176 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.934 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.799 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.770 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.750 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.502 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 12.345 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.271 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 12.267 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 12.260 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 12.252 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 12.235 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 12.179 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 12.096 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 12.092 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 12.082 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 12.029 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 12.025 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 12.016 ns  ; ps2_keyboard:keyboard|ps2_code[4] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 12.010 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 11.993 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 11.894 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 11.885 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 11.865 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 11.861 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 11.852 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 11.846 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 11.845 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 11.842 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 11.829 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 11.829 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 11.828 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 11.802 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 11.787 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 11.774 ns  ; x7seg:display|clkdiv[20]          ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 11.677 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 11.636 ns  ; ps2_keyboard:keyboard|ps2_code[3] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 11.610 ns  ; ps2_keyboard:keyboard|ps2_code[0] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 11.587 ns  ; ps2_keyboard:keyboard|ps2_code[5] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 11.520 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[0] ; clk        ;
+; N/A   ; None         ; 11.472 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 11.447 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 11.437 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 11.397 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 11.382 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 11.274 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 11.265 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 11.225 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 11.208 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 11.182 ns  ; ps2_keyboard:keyboard|ps2_code[1] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 11.154 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 11.016 ns  ; ps2_keyboard:keyboard|ps2_code[7] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 10.922 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 10.922 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 10.907 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 10.888 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 10.845 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[1] ; clk        ;
+; N/A   ; None         ; 10.666 ns  ; ps2_keyboard:keyboard|ps2_code[6] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 10.613 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[4] ; clk        ;
+; N/A   ; None         ; 10.613 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[3] ; clk        ;
+; N/A   ; None         ; 10.598 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[2] ; clk        ;
+; N/A   ; None         ; 10.579 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[6] ; clk        ;
+; N/A   ; None         ; 10.357 ns  ; ps2_keyboard:keyboard|ps2_code[2] ; oHEX0_D[5] ; clk        ;
+; N/A   ; None         ; 7.450 ns   ; x7seg:display|clkdiv[20]          ; an[0]      ; clk        ;
+; N/A   ; None         ; 7.420 ns   ; x7seg:display|clkdiv[20]          ; an[1]      ; clk        ;
++-------+--------------+------------+-----------------------------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; th                                                                                                ;
++---------------+-------------+-----------+----------+-----------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From     ; To                                ; To Clock ;
++---------------+-------------+-----------+----------+-----------------------------------+----------+
+; N/A           ; None        ; -3.414 ns ; ps2_clk  ; ps2_keyboard:keyboard|sync_ffs[0] ; clk      ;
+; N/A           ; None        ; -4.562 ns ; ps2_data ; ps2_keyboard:keyboard|sync_ffs[1] ; clk      ;
++---------------+-------------+-----------+----------+-----------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Nov 09 15:56:20 2016
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off pong_top -c pong_top --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "ps2_keyboard:keyboard|debounce:debounce_ps2_clk|result" as buffer
+Info: Clock "clk" has Internal fmax of 99.01 MHz between source register "ps2_keyboard:keyboard|ps2_word[8]" and destination register "ps2_keyboard:keyboard|ps2_code[0]" (period= 10.1 ns)
+    Info: + Longest register to register delay is 2.757 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X58_Y13_N21; Fanout = 3; REG Node = 'ps2_keyboard:keyboard|ps2_word[8]'
+        Info: 2: + IC(0.352 ns) + CELL(0.438 ns) = 0.790 ns; Loc. = LCCOMB_X58_Y13_N4; Fanout = 1; COMB Node = 'ps2_keyboard:keyboard|error~1'
+        Info: 3: + IC(0.253 ns) + CELL(0.275 ns) = 1.318 ns; Loc. = LCCOMB_X58_Y13_N28; Fanout = 1; COMB Node = 'ps2_keyboard:keyboard|error~2'
+        Info: 4: + IC(0.248 ns) + CELL(0.150 ns) = 1.716 ns; Loc. = LCCOMB_X58_Y13_N14; Fanout = 8; COMB Node = 'ps2_keyboard:keyboard|process_2~0'
+        Info: 5: + IC(0.381 ns) + CELL(0.660 ns) = 2.757 ns; Loc. = LCFF_X57_Y13_N21; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|ps2_code[0]'
+        Info: Total cell delay = 1.523 ns ( 55.24 % )
+        Info: Total interconnect delay = 1.234 ns ( 44.76 % )
+    Info: - Smallest clock skew is -2.079 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.789 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+            Info: 2: + IC(0.114 ns) + CELL(0.000 ns) = 1.093 ns; Loc. = CLKCTRL_G10; Fanout = 66; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(1.159 ns) + CELL(0.537 ns) = 2.789 ns; Loc. = LCFF_X57_Y13_N21; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|ps2_code[0]'
+            Info: Total cell delay = 1.516 ns ( 54.36 % )
+            Info: Total interconnect delay = 1.273 ns ( 45.64 % )
+        Info: - Longest clock path from clock "clk" to source register is 4.868 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+            Info: 2: + IC(0.630 ns) + CELL(0.787 ns) = 2.396 ns; Loc. = LCFF_X48_Y50_N31; Fanout = 14; REG Node = 'ps2_keyboard:keyboard|debounce:debounce_ps2_clk|result'
+            Info: 3: + IC(0.776 ns) + CELL(0.000 ns) = 3.172 ns; Loc. = CLKCTRL_G8; Fanout = 11; COMB Node = 'ps2_keyboard:keyboard|debounce:debounce_ps2_clk|result~clkctrl'
+            Info: 4: + IC(1.159 ns) + CELL(0.537 ns) = 4.868 ns; Loc. = LCFF_X58_Y13_N21; Fanout = 3; REG Node = 'ps2_keyboard:keyboard|ps2_word[8]'
+            Info: Total cell delay = 2.303 ns ( 47.31 % )
+            Info: Total interconnect delay = 2.565 ns ( 52.69 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 1 non-operational path(s) clocked by clock "clk" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "ps2_keyboard:keyboard|debounce:debounce_ps2_data|result" and destination pin or register "ps2_keyboard:keyboard|ps2_word[10]" for clock "clk" (Hold time is 888 ps)
+    Info: + Largest clock skew is 2.064 ns
+        Info: + Longest clock path from clock "clk" to destination register is 4.868 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+            Info: 2: + IC(0.630 ns) + CELL(0.787 ns) = 2.396 ns; Loc. = LCFF_X48_Y50_N31; Fanout = 14; REG Node = 'ps2_keyboard:keyboard|debounce:debounce_ps2_clk|result'
+            Info: 3: + IC(0.776 ns) + CELL(0.000 ns) = 3.172 ns; Loc. = CLKCTRL_G8; Fanout = 11; COMB Node = 'ps2_keyboard:keyboard|debounce:debounce_ps2_clk|result~clkctrl'
+            Info: 4: + IC(1.159 ns) + CELL(0.537 ns) = 4.868 ns; Loc. = LCFF_X58_Y13_N7; Fanout = 2; REG Node = 'ps2_keyboard:keyboard|ps2_word[10]'
+            Info: Total cell delay = 2.303 ns ( 47.31 % )
+            Info: Total interconnect delay = 2.565 ns ( 52.69 % )
+        Info: - Shortest clock path from clock "clk" to source register is 2.804 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+            Info: 2: + IC(0.114 ns) + CELL(0.000 ns) = 1.093 ns; Loc. = CLKCTRL_G10; Fanout = 66; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(1.174 ns) + CELL(0.537 ns) = 2.804 ns; Loc. = LCFF_X66_Y13_N5; Fanout = 2; REG Node = 'ps2_keyboard:keyboard|debounce:debounce_ps2_data|result'
+            Info: Total cell delay = 1.516 ns ( 54.07 % )
+            Info: Total interconnect delay = 1.288 ns ( 45.93 % )
+    Info: - Micro clock to output delay of source is 0.250 ns
+    Info: - Shortest register to register delay is 1.192 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X66_Y13_N5; Fanout = 2; REG Node = 'ps2_keyboard:keyboard|debounce:debounce_ps2_data|result'
+        Info: 2: + IC(0.959 ns) + CELL(0.149 ns) = 1.108 ns; Loc. = LCCOMB_X58_Y13_N6; Fanout = 1; COMB Node = 'ps2_keyboard:keyboard|ps2_word[10]~feeder'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 1.192 ns; Loc. = LCFF_X58_Y13_N7; Fanout = 2; REG Node = 'ps2_keyboard:keyboard|ps2_word[10]'
+        Info: Total cell delay = 0.233 ns ( 19.55 % )
+        Info: Total interconnect delay = 0.959 ns ( 80.45 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "ps2_keyboard:keyboard|sync_ffs[1]" (data pin = "ps2_data", clock pin = "clk") is 4.792 ns
+    Info: + Longest pin to register delay is 7.646 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.830 ns) = 0.830 ns; Loc. = PIN_E24; Fanout = 1; PIN Node = 'ps2_data'
+        Info: 2: + IC(6.583 ns) + CELL(0.149 ns) = 7.562 ns; Loc. = LCCOMB_X66_Y14_N16; Fanout = 1; COMB Node = 'ps2_keyboard:keyboard|sync_ffs[1]~feeder'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 7.646 ns; Loc. = LCFF_X66_Y14_N17; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|sync_ffs[1]'
+        Info: Total cell delay = 1.063 ns ( 13.90 % )
+        Info: Total interconnect delay = 6.583 ns ( 86.10 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.818 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+        Info: 2: + IC(0.114 ns) + CELL(0.000 ns) = 1.093 ns; Loc. = CLKCTRL_G10; Fanout = 66; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.188 ns) + CELL(0.537 ns) = 2.818 ns; Loc. = LCFF_X66_Y14_N17; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|sync_ffs[1]'
+        Info: Total cell delay = 1.516 ns ( 53.80 % )
+        Info: Total interconnect delay = 1.302 ns ( 46.20 % )
+Info: tco from clock "clk" to destination pin "oHEX0_D[0]" through register "ps2_keyboard:keyboard|ps2_code[4]" is 13.176 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.789 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+        Info: 2: + IC(0.114 ns) + CELL(0.000 ns) = 1.093 ns; Loc. = CLKCTRL_G10; Fanout = 66; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.159 ns) + CELL(0.537 ns) = 2.789 ns; Loc. = LCFF_X57_Y13_N31; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|ps2_code[4]'
+        Info: Total cell delay = 1.516 ns ( 54.36 % )
+        Info: Total interconnect delay = 1.273 ns ( 45.64 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Longest register to pin delay is 10.137 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X57_Y13_N31; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|ps2_code[4]'
+        Info: 2: + IC(0.309 ns) + CELL(0.420 ns) = 0.729 ns; Loc. = LCCOMB_X57_Y13_N20; Fanout = 7; COMB Node = 'x7seg:display|digit[0]~0'
+        Info: 3: + IC(4.741 ns) + CELL(0.150 ns) = 5.620 ns; Loc. = LCCOMB_X21_Y2_N24; Fanout = 1; COMB Node = 'x7seg:display|Mux6~0'
+        Info: 4: + IC(1.749 ns) + CELL(2.768 ns) = 10.137 ns; Loc. = PIN_AE8; Fanout = 0; PIN Node = 'oHEX0_D[0]'
+        Info: Total cell delay = 3.338 ns ( 32.93 % )
+        Info: Total interconnect delay = 6.799 ns ( 67.07 % )
+Info: th for register "ps2_keyboard:keyboard|sync_ffs[0]" (data pin = "ps2_clk", clock pin = "clk") is -3.414 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.869 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_E16; Fanout = 2; CLK Node = 'clk'
+        Info: 2: + IC(0.114 ns) + CELL(0.000 ns) = 1.093 ns; Loc. = CLKCTRL_G10; Fanout = 66; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.239 ns) + CELL(0.537 ns) = 2.869 ns; Loc. = LCFF_X75_Y50_N1; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|sync_ffs[0]'
+        Info: Total cell delay = 1.516 ns ( 52.84 % )
+        Info: Total interconnect delay = 1.353 ns ( 47.16 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 6.549 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.830 ns) = 0.830 ns; Loc. = PIN_F24; Fanout = 1; PIN Node = 'ps2_clk'
+        Info: 2: + IC(5.486 ns) + CELL(0.149 ns) = 6.465 ns; Loc. = LCCOMB_X75_Y50_N0; Fanout = 1; COMB Node = 'ps2_keyboard:keyboard|sync_ffs[0]~feeder'
+        Info: 3: + IC(0.000 ns) + CELL(0.084 ns) = 6.549 ns; Loc. = LCFF_X75_Y50_N1; Fanout = 1; REG Node = 'ps2_keyboard:keyboard|sync_ffs[0]'
+        Info: Total cell delay = 1.063 ns ( 16.23 % )
+        Info: Total interconnect delay = 5.486 ns ( 83.77 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 133 megabytes
+    Info: Processing ended: Wed Nov 09 15:56:21 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
